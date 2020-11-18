@@ -1,0 +1,194 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pegada Ecológica | Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="assets/css/stylesRegister.css"> -->
+</head>
+<body>
+
+  <!-- Start Container-Fluid Pegada -->
+  <div class="container-fluid navbarPegada">
+    <div class="container navbarPegada">
+      <div class="row rowPegada">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom primary-color">
+            <a class="navbar-brand" routerLink="/login">
+                <img src="../../assets/images/navbar-icon.png"class="d-inline-block align-middle avatar"
+                    alt="pegada ecologica logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/login">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="/cadastrar">Cadastro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/contato">Contato</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/sobre">Sobre</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link"  routerLink="/login">Entrar</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- Ends Container-Fluid Pegada -->
+    
+  <!-- Start Container-Fluid Register -->
+  <div class="container-fluid register">
+    <div class="container register">
+      <div class="row register">
+        <!-- <form [formGroup]="formRegister" class="form register" (ngSubmit)="registerClient(formRegister)"> -->
+          <form class="formInsertQuestion adm"
+                    id="formInsertQuestion"
+                    [formGroup] = "insertQuestionForm"
+                    (ngSubmit)="insertQuestion(insertQuestionForm)" 
+                    action=""
+                >
+
+            <div class="form-group">
+                <label for="question">Pergunta:</label>
+                <input type="text" class="form-control" id="question" name="question" required placeholder="Insira a pergunta" ngModel #question="ngModel">
+            
+                <div *ngIf="question.invalid && (question.dirty || question.touched)" class="alert alert-danger">
+
+                    <div *ngIf="question.errors.required">
+                        <p>Campo obrigatório.</p>
+                    </div>
+                </div>
+            </div>
+          
+         <!--    <div class="form-label-group">
+                <label for="inputName">Nome</label>
+                <input type="name" id="inputName" class="form-control" placeholder="Nome" formControlName="inputName" autofocus
+                [class]="(submitted && formRegister.get('inputName').errors) || 
+                (formRegister.get('inputName').errors && formRegister.get('inputName').dirty) ? 'is-invalid' : 
+                formRegister.get('inputName').dirty ? 'is-valid' : '' "/>
+                
+                <div *ngIf="formRegister.get('inputName').errors?.required" 
+                  class="invalid-feedback" >
+                  <p>Campo nome é obrigatório!</p>
+                </div>
+                
+            </div> -->
+
+          <!--   <div class="form-label-group">
+                <label for="inputSurname">Sobrenome</label>
+                <input type="name" id="inputSurname" class="form-control" placeholder="Sobrenome" formControlName="inputSurname" 
+                [class]="(submitted && formRegister.get('inputSurname').errors) || 
+                         (formRegister.get('inputSurname').errors && formRegister.get('inputSurname').dirty) ? 'is-invalid' : 
+                         formRegister.get('inputSurname').dirty ? 'is-valid' : '' "/>
+                <div *ngIf="formRegister.get('inputSurname').errors?.required"
+                  class="invalid-feedback" >
+                  <p>Campo sobrenome é obrigatório!</p>
+                </div>
+            </div> -->
+
+          <!--   <div class="form-label-group">
+              <label for="inputEmail">E-mail</label>
+              <input type="email" id="inputEmail" class="form-control" placeholder="E-mail" formControlName="inputEmail" 
+              [class]="(submitted && formRegister.get('inputEmail').errors) || 
+              (formRegister.get('inputEmail').errors && formRegister.get('inputEmail').dirty) ? 'is-invalid' : 
+              formRegister.get('inputEmail').dirty ? 'is-valid' : '' "/>
+              <div *ngIf="formRegister.get('inputEmail').errors?.required"
+                    class="invalid-feedback" >
+                    <p>Campo e-mail é obrigatório!</p>
+              </div>
+              <div *ngIf="formRegister.get('inputEmail').errors?.email"
+                    class="invalid-feedback" >
+                <p>E-mail inválido!</p>
+              </div>
+            </div>
+            
+            <div class="form-label-group">
+                <label for="inputPassword">Senha</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Senha" formControlName="inputPassword" 
+                [class]="(submitted && formRegister.get('inputPassword').errors) || 
+                    (formRegister.get('inputPassword').errors && formRegister.get('inputPassword').dirty) ? 'is-invalid' : 
+                    formRegister.get('inputPassword').dirty ? 'is-valid' : '' "/>
+                    <div *ngIf="formRegister.get('inputPassword').errors?.required"
+                          class="invalid-feedback" >
+                          <p>Campo senha é obrigatório!</p>
+                    </div>
+            </div>
+
+            <div class="form-label-group">
+              <label for="inputConfirm">Confirme a senha</label>
+              <input type="password" id="inputConfirm" class="form-control" placeholder="Confirme a senha" formControlName="inputConfirm"
+              [class]="(submitted && formRegister.get('inputConfirm').errors) || 
+                        (formRegister.get('inputConfirm').errors && formRegister.get('inputConfirm').dirty) ? 'is-invalid' : 
+                        formRegister.get('inputConfirm').dirty ? 'is-valid' : '' "/>
+              <div *ngIf="formRegister.get('inputConfirm').errors?.required"
+                    class="invalid-feedback" >
+                    <p>Confirme a senha!</p>
+              </div>
+              <div *ngIf="formRegister.get('inputConfirm').errors?.mustMatch"
+                    class="invalid-feedback" >
+                    <p>Senhas devem ser iguais!</p>
+              </div>
+            </div> -->
+                                  
+            <!-- <div>
+                <button type="submit" class="btnPegada">Registre-se</button>
+            </div>    --> 
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Ends Container-Fluid Register -->
+
+  <!-- Start Container-Fluid Footer -->
+    <div class="container-fluid footer">
+      <div class="container footer">
+        <div class="row footer">
+          <div class="col-xs-12 col-sm-4 col-md-4 colFooter">
+            <ul class="socials">
+                <li><a href="#"><img src="../../assets/images/facebook-item.png"></a></li>
+                <li><a href="#"><img src="../../assets/images/instagram-item.png"></a></li>
+                <li><a href="#"><img src="../../assets/images/twitter-icon.png"></a></li>
+                <li><a href="#"><img src="../../assets/images/youtube-icon.png"></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 text-center text-white colFooter">
+              <h6>© Todos os direitos reservados.</h6>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 colFooter">
+            <div class="row">
+              <div class="col-12">
+                <a href="/login">
+                    <img src="../../assets/images/navbar-icon.png" class="avatar-footer" alt="pegada ecologica logo">  
+                </a>
+              </div>
+              <div class="col-12">
+                  <h5>Pegada Ecológica</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Ends Container-Fluid Footer -->
+
+  <footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </footer>
+
+</body>
+</html>

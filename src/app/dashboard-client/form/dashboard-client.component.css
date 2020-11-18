@@ -1,0 +1,402 @@
+*{
+    padding: 0;
+    margin: 0;
+  }
+    
+  body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #fff;
+    position: relative;
+  }
+
+  input{
+    border: 1px solid  #5FB739!important;
+  }
+
+  a{
+    text-decoration: none!important;
+  }
+  
+  
+  /* Start Style Container-Fluid NavbarPegada */
+  /* Start Style Container-Fluid NavbarPegada */
+  /* Start Style Container-Fluid NavbarPegada */
+  
+  .container-fluid.navbarPegada{
+    background-color: #5FB739;
+    padding: 0;
+    text-transform: uppercase;
+  }
+  
+  nav.navbar.navbar-expand-lg.navbar-dark.navbar-custom.primary-color{
+    width: 100%;
+  }
+  
+  .navbar-custom .navbar-brand,
+  .navbar-custom .navbar-text {
+    color:#E8FCCF;
+  }
+  
+  .navbar-custom .navbar-nav .nav-link {
+    color: #E8FCCF;
+  }
+  
+  .navbar-custom .nav-item.active .nav-link,
+  .navbar-custom .nav-item:focus .nav-link,
+  .navbar-custom .nav-item:hover .nav-link {
+    color: #3a5a40;
+  }
+  
+  .avatar{
+    border-radius: 50%;
+    background-color: #E8FCCF;
+    vertical-align: middle;
+    height: 40px;
+  }
+  
+  .navbar-text{
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  /* Ends Style Container-Fluid NavbarPegada */
+  /* Ends Style Container-Fluid NavbarPegada */
+  /* Ends Style Container-Fluid NavbarPegada */
+
+
+
+
+  /* Start Style Container-Fluid Dashboard */
+  /* Start Style Container-Fluid Dashboard */
+  /* Start Style Container-Fluid Dashboard */
+  
+  .container-fluid.dashboard{
+    border-bottom: 2px solid #5FB739;
+  }
+  
+  .container.dashboard{
+    text-align: center;
+  }
+  
+  .container.dashboard a{
+    text-decoration: none;
+  }
+  
+  .container.dashboard .colDashboard{
+    padding: 0;
+    min-height: 100px;
+  }
+  
+  .container.dashboard .colDashboard:hover{
+    background-color: #5FB739;
+  }
+  
+  .container.dashboard .btnDashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 300;
+    color: #000;
+    margin: 0 4px;
+    border-radius: 4px;
+    padding: 0px 10px;
+    min-height: 100px;
+    width: 100%;
+  }
+
+  .container.dashboard .btnDashboard:hover{
+    font-weight: 400;
+    color: #fff;
+  }
+
+  .container.dashboard .row.dashboard .menuDashboard{
+    display: inline-flex;
+    margin: 0;
+  }
+
+  .container.dashboard .row.dashboard{
+    justify-content: center;
+  }
+
+  .container.dashboard .row.dashboard .menuDashboard li{
+    text-decoration: none;
+    list-style-type: none;
+    min-width: 200px;
+  }
+  /* Ends Style Container-Fluid Dashboard */
+  /* Ends Style Container-Fluid Dashboard */
+  /* Ends Style Container-Fluid Dashboard */
+
+
+
+  /* Start Style Container-Fluid ChartsPegada */
+  /* Start Style Container-Fluid ChartsPegada */
+  /* Start Style Container-Fluid ChartsPegada */
+  
+  .container-fluid.chartsPegada{
+    padding: 30px 2px;
+    min-height: 900px;
+    position: relative;
+  } 
+  
+  .container.chartsPegada{
+    max-width: 920px;
+    text-align: center;
+    text-transform: uppercase;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 70px;
+  }
+
+  .container.chartsPegada .row.chartsPegada .chart-container{
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+  }
+
+  .container.chartsPegada .row.chartsPegada .questionToAnalyze{
+    border-bottom: 1px solid #5FB739;
+    text-align: left;
+    padding: 10px;
+    margin: 4px;
+  }
+
+  .container.chartsPegada .row.chartsPegada .toAnalyze{
+    border-radius: 50px;
+    border: 2px solid #5FB739;
+    text-transform: uppercase;
+    font-size: 24px;
+    padding: 10px 4px;
+    width: 100%;
+    font-weight: 400;
+    background-color: transparent;
+    color: #fff;
+    margin: 20px 0px;
+    color: #000;
+  }
+
+  .container.chartsPegada .row.chartsPegada .toAnalyze:hover{
+    background-color: #5FB739;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 4px 4px 6px #000;
+  }
+
+  .container-fluid.chartsPegada h3{
+    color: #5FB739;
+    padding: 20px 0px;
+  }
+
+  .container-fluid.chartsPegada p{
+    text-align: justify;
+  }
+
+  .container-fluid.chartsPegada .dropdown .btnChooseCategory{
+    width: 100%;
+    background-color: #5FB739;
+  }
+
+  .container-fluid.chartsPegada .dropdown .dropdown-menu.show{
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .container-fluid.chartsPegada .dropdown .dropdown-menu.show a:hover{
+    background-color: #5FB739;
+    color: #fff;
+  }
+
+  .container-fluid.chartsPegada .container.chartsPegada .contentCategory .row{
+    text-align: justify;
+    padding: 12px;
+    border: 2px solid #5FB739;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+  }
+
+  .container-fluid.chartsPegada .container.chartsPegada .contentCategory .row span{
+    background-color: #5FB739;
+    padding: 6px 10px;
+    border-radius: 20px;
+    color: #fff;
+  }
+
+  .container-fluid.chartsPegada  .row.chartsPegada h3{
+    width: 100%;
+  }
+
+  /* Start Dashboard Configurations */
+
+  .container-fluid.chartsPegada  .row.chartsPegada.configurations .squareConfigurations{
+    padding: 32px;
+    border: 2px solid #5FB739;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .container-fluid.chartsPegada  .row.chartsPegada form.form-configurations label{
+    margin-top: 16px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .container-fluid.chartsPegada  .row.chartsPegada form.form-configurations .btnUpdatePassword{
+    border-radius: 50px;
+    border: 2px solid #5FB739;
+    text-transform: uppercase;
+    font-size: 24px;
+    padding: 10px 4px;
+    width: 30%;
+    min-width: 150px; 
+    font-weight: 400;
+    background-color: transparent;
+    color: #fff;
+    margin: 20px 0px;
+    color: #000;
+  }
+  
+  .container-fluid.chartsPegada  .row.chartsPegada form.form-configurations .btnUpdatePassword:hover{
+    background-color: #5FB739;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 4px 4px 6px #000;
+  }
+
+  .container-fluid.chartsPegada  .row.chartsPegada form.form-configurations h5{
+    text-align: center;
+  }
+
+/* Ends Dashboard Configurations */
+
+/* Start Dashboard Administration */
+
+  .container-fluid.chartsPegada  .row.chartsPegada .squareInsertQuestion,
+  .container-fluid.chartsPegada  .row.chartsPegada .squareAllQuestions{
+    padding: 6px;
+    border: 2px solid #5FB739;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .container-fluid.chartsPegada  .row.chartsPegada form.formInsertQuestion{
+    text-align: left;
+    padding: 25px;
+  }
+
+  .container-fluid.chartsPegada  .row.chartsPegada form.formInsertQuestion label{
+    margin-top: 16px;
+  }
+
+  .container-fluid.chartsPegada  .row.chartsPegada form.formInsertQuestion .toInsertQuestion{
+    border-radius: 50px;
+    border: 2px solid #5FB739;
+    text-transform: uppercase;
+    font-size: 24px;
+    padding: 10px 4px;
+    width: 100%;
+    font-weight: 400;
+    background-color: transparent;
+    color: #fff;
+    margin: 20px 0px;
+    color: #000;
+  }
+  
+  .container-fluid.chartsPegada  .row.chartsPegada form.formInsertQuestion .toInsertQuestion:hover{
+    background-color: #5FB739;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 4px 4px 6px #000;
+  }
+
+  .container-fluid.chartsPegada  .row.chartsPegada form.formInsertQuestion h5{
+    text-align: center;
+  }
+
+  /* Ends Dashboard Administration */
+  
+  /* Ends Style Container-Fluid ChartsPegada */
+  /* Ends Style Container-Fluid ChartsPegada */
+  /* Ends Style Container-Fluid ChartsPegada */
+  
+
+
+  /* Start  Style Container-Fluid Footer */
+  /* Start  Style Container-Fluid Footer */
+  /* Start  Style Container-Fluid Footer */
+  
+  .container-fluid.footer{
+    background-color: #5FB739;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .container .footer{
+    padding: 20px;
+  }
+  
+  .container .footer .colFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container .footer h6{
+    font-size: 12px;
+    padding: 10px 0px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color:#000;
+    margin: 0;
+  }
+  
+  .container .footer h5{
+    font-size: 16px;
+    padding: 10px 0px;
+    font-weight: 400;
+    color:#fff;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  
+  /* Ends  Style Container-Fluid Footer */
+  /* Ends  Style Container-Fluid Footer */
+  /* Ends  Style Container-Fluid Footer */
+  
+
+  @media(max-width:768px){
+    .container.dashboard .row.dashboard .menuDashboard{
+      display: inline-block;
+    }
+
+    .container-fluid.chartsPegada  .row.chartsPegada.adm .squareAllQuestions.adm table{
+      font-size: 12px;
+    }
+  }
+  
+  /* @media(max-width:1366px){
+    
+    .container-fluid.login {
+      min-height: 860px;
+    }
+
+    .container-fluid.chartsPegada {
+      min-height: 1920px;
+    }
+  
+  } */
+  
+  

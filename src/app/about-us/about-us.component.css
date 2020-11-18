@@ -1,0 +1,201 @@
+*{
+    padding: 0;
+    margin: 0;
+  }
+    
+  body {
+    background-image: url(../../assets/images/background-pegada.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #fff;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  
+  /* Start Style Container-Fluid NavbarPegada */
+  /* Start Style Container-Fluid NavbarPegada */
+  /* Start Style Container-Fluid NavbarPegada */
+  
+  .container-fluid.navbarPegada{
+    background-color: #5FB739;
+    padding: 0;
+    text-transform: uppercase;
+  }
+  
+  nav.navbar.navbar-expand-lg.navbar-dark.navbar-custom.primary-color{
+    width: 100%;
+  }
+  
+  .navbar-custom .navbar-brand,
+  .navbar-custom .navbar-text {
+    color:#E8FCCF;
+  }
+  
+  .navbar-brand svg{
+    max-width: 40px;
+  }
+  
+  .navbar-custom .navbar-nav .nav-link {
+    color: #E8FCCF;
+  }
+  
+  .navbar-custom .nav-item.active .nav-link,
+  .navbar-custom .nav-item:focus .nav-link,
+  .navbar-custom .nav-item:hover .nav-link {
+    color: #3a5a40;
+  }
+  
+  .avatar{
+    border-radius: 50%;
+    background-color: #E8FCCF;
+    vertical-align: middle;
+    height: 40px;
+  }
+  
+  .navbar-text{
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  /* Ends Style Container-Fluid NavbarPegada */
+  /* Ends Style Container-Fluid NavbarPegada */
+  /* Ends Style Container-Fluid NavbarPegada */
+  
+  
+  
+  /* Start  Style Container-Fluid About */
+  /* Start  Style Container-Fluid About */
+  /* Start  Style Container-Fluid About */
+
+  .container.about{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+    max-width: 800px;
+    margin-top: 30px;
+  }
+
+ .container.about .row.about{
+    width: 100%;
+  }
+  
+  .container.about .square.about{
+    border: 2px solid #5FB739;
+    border-radius: 20px;
+    padding: 50px;
+    text-align: left;
+    width: 100%;
+    color: #fff;
+    background-color:#5fb739a8;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .container.about .square.about h4{
+    font-size: 22px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 4px 10px;
+    margin: 10px 0px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .container.about .square.about p{
+    font-size: 16px;
+    text-align: justify;
+    margin-top: 20px;
+  }
+  
+  /* Ends  Style Container-Fluid About */
+  /* Ends  Style Container-Fluid About */
+  /* Ends  Style Container-Fluid About */
+  
+  
+  /* Start  Style Container-Fluid Footer */
+  /* Start  Style Container-Fluid Footer */
+  /* Start  Style Container-Fluid Footer */
+  
+  .container-fluid.footer{
+    background-color: #5FB739;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .container .footer{
+    padding: 20px;
+  }
+  
+  .container .footer .colFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container .footer .socials{
+    display: inline-flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .container .footer .socials li img{
+    width: 32px;
+  }
+  
+  .container .footer .socials li a{
+    text-decoration: none;
+  }
+  
+  .container .footer h6{
+    font-size: 12px;
+    padding: 10px 0px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color:#000;
+    margin: 0;
+  }
+  
+  .container .footer h5{
+    font-size: 16px;
+    padding: 10px 0px;
+    font-weight: 400;
+    color:#fff;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  
+  
+  .avatar-footer{
+    border-radius: 50%;
+    background-color: #E8FCCF;
+    vertical-align: middle;
+    height: 50px;
+  }
+  
+  /* Ends  Style Container-Fluid Footer */
+  /* Ends  Style Container-Fluid Footer */
+  /* Ends  Style Container-Fluid Footer */
+  
+  
+  @media(max-width:1366px){
+    
+    .container-fluid.about {
+      min-height: 1200px;
+    }
+
+    .container.about .square.about{
+        padding: 20px;
+    }
+  
+  }
+  
+  
+  

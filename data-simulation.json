@@ -1,0 +1,230 @@
+{
+	"data":[
+		{
+			"id":1,
+			"question": "Como é sua dieta?",
+			"category": "Alimentação",
+			"type": "Ativo",
+			"answer": [
+				{
+					"id": 1,
+					"a": "Vegana",
+					"b": "Vegetariana",
+					"c": "Onívora",
+					"d": "Predileção por carne vermelha"	 
+				}
+			]
+		},
+		{
+			"id":2,
+			"question": "Você procura comprar alimentos produzidos localmente?",
+			"category": "Alimentação",
+			"type": "Ativo",
+			"answer": [
+				{
+					"id": 2,
+					"a": "Sim",
+					"b": "Não",
+					"c": "Às vezes",
+					"d": "Raramente"	 
+				}
+			]
+		},
+		{
+			"id":3,
+			"question": "Quantas vezes por semana você almoça/janta em casa?",
+			"category": "Alimentação",
+			"type": "Ativo",
+			"answer": [
+				{
+					"id": 3,
+					"a": "Menos de 10 vezes",
+					"b": "10 a 14 vezes",
+					"c": "15 a 18 vezes",
+					"d": "19 ou mais vezes"	 
+				}
+			]
+		},
+		{
+			"id":4,
+			"question": "Quantas pessoas moram em sua casa?",
+			"category": "Alojamento",
+			"type": "Ativo",
+			"answer": [
+				{
+					"id": 4,
+					"a": "1 pessoa",
+					"b": "2 pessoas",
+					"c": "3 pessoas",
+					"d": "4 ou mais pessoas"	 
+				}
+			]
+		},
+		{
+			"id":5,
+			"question": "Qual o sistema de aquecimento de água da sua casa?",
+			"category": "Alojamento",
+			"type": "Ativo",
+			"answer": [
+				{
+					"id": 5,
+					"a": "Gás natural",
+					"b": "Eletricidade",
+					"c": "Gasóleo",
+					"d": "Fontes renováveis (solar, eólica, entre outras)"	 
+				}
+			]
+		},
+		{
+			"id":6,
+			"question":  "Quantas torneiras existem em sua casa?",
+			"category": "Alojamento",
+			"type": "Ativo",
+			"answer": [
+				{
+					"id": 26,
+					"a": "Menos de 3 torneiras",
+					"b": "3 a 7 torneiras",
+					"c": "7 a 10 torneiras",
+					"d": "Mais de 10 torneiras"	 
+				}
+			]
+		},
+		{
+			"id":7,
+			"question": "Como você vai trabalhar diariamente?",
+			"category": "Transporte",
+			"type": "Ativo",
+			"answer": [
+				{
+					"id": 7,
+					"a": "Carro próprio",
+					"b": "Carona",
+					"c": "Transporte público",
+					"d": "Bicicleta ou a pé"
+				 
+				}
+			]
+		},
+		{
+			"id":7,
+			"question": "Como você vai trabalhar diariamente?",
+			"category": "Transporte",
+			"type": "Ativo",
+			"answer": {
+						"id":7,
+						"a": "Carro próprio",
+						"b": "Carona",
+						"c": "Transporte público",
+						"d": "Bicicleta ou a pé"
+					  }
+		},
+		{
+			"id":8,
+			"question": "Você possui algum tipo de automóvel?",
+			"category": "Transporte",
+			"type": "Ativo",
+			"answer": {
+						"id": 8,
+						"a": "Não",
+						"b": "Motocicleta",
+						"c": "Carro",
+						"d": "Caminhão/caminhonete"	 
+					  }
+		},
+		{
+			"id":9,
+			"question": "Qual a distância aproximadamente do trajeto entre sua moradia e seu trabalho?",
+			"category": "Transporte",
+			"type": "Ativo",
+			"answer": {
+						"id":9,
+						"a": "Menos de 10 quilômetros",
+						"b": "Entre 10 e 50 quilômetros",
+						"c": "Entre 50 e 100 quilômetros",
+						"d": "Mais de 100 quilômetros"	 
+						}
+		},
+		{
+			"id":10,
+			"question": "Quantas compras significativas você fez ano passado?(por exemplo: TV, computador, móveis, etc?",
+			"category": "Consumo",
+			"type": "Ativo",
+			"answer": {
+						"id":10,
+						"a": "0",
+						"b": "1 a 3",
+						"c": "4 a 6",
+						"d": "Mais de 6"	 
+					}
+		},
+		{
+			"id":11,
+			"question": "Quantos produtos elétricos são de baixo consumo em sua casa?",
+			"category": "Consumo",
+			"type": "Ativo",
+			"answer": { 
+						"id": 11,
+						"a": "0",
+						"b": "1 a 3",
+						"c": "4 a 6",
+						"d": "Mais de 6"
+						}
+		},
+		{
+			"id":12,
+			"question": "Em quantos meses você costuma substituir estes aparelhos eletrônicos pessoais?",
+			"category": "Consumo",
+			"type": "Ativo",
+			"answer": {
+						"id": 12,
+						"a": "Menos de 6 meses",
+						"b": "Entre 6 meses e 1 ano",
+						"c": "Entre 1 e 2 anos",
+						"d": "Mais de 2 anos"	 
+						}
+		},
+		{
+			"id":13,
+			"question": "Você pratica compostagem dos resíduos orgânicos?",
+			"category": "Resíduos",
+			"type": "Ativo",
+			"answer": {
+						"id": 13,
+						"a": "Sempre",
+						"b": "Às vezes",
+						"c": "Raramente",
+						"d": "Nunca"	 
+						}
+		},
+		{
+			"id":14,
+			"question": "Você procura reduzir a produção de resíduos? (por exemplo: evitasprodutos com muita embalagem, reutilizas o papel, evitas os sacosde plástico, etc.)",
+			"category": "Resíduos",
+			"type": "Ativo",
+			"answer": {
+						"id":14,
+						"a": "Sempre",
+						"b": "Às vezes",
+						"c": "Raramente",
+						"d": "Nunca"	 
+						}
+		},
+		{
+			"id":15,
+			"question": "Quantos sacos de lixo são produzidos na sua moradia por semana?",
+			"category": "Resíduos",
+			"type": "Ativo",
+			"answer": {
+						"id":15,
+						"a": "1",
+						"b": "2",
+						"c": "3",
+						"d": "4 ou mais"	 
+						}
+		}
+	]
+}
+
+
+
