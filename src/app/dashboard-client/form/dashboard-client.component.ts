@@ -35,6 +35,7 @@ export class DashboardClientComponent implements OnInit {
      //private clientService: ClientServiceService
       ) { }
   
+
   ngOnInit(): void {
     this.hiddenContent();
     this.showContent('historic');
@@ -44,6 +45,24 @@ export class DashboardClientComponent implements OnInit {
     this.getAllQuestions();
     this.getActiveQuestions();
     //this.showAnswers();
+    this.getRadio();
+  }
+
+  getRadio(){
+    let r = $('input[name="question5"]:checked').val();
+    //let s = document.querySelector('input[name="question1"]:checked').value;
+    console.log("GetRadio: " + r);
+    //console.log("GetRadio2: " + s);
+
+  /*   document.getElementById("btnSubmit").onclick = function() {
+      var radios = document.getElementsByName("Nome do elemento botão");
+      for (var i = 0; i < radios.length; i++) {
+          if (radios[i].checked) {
+              var IdEscolhido = radios[i].value;
+              console.log("Escolheu: " + IdEscolhido);
+          }
+      }
+  }; */
   }
 
   getAllQuestions(){
@@ -158,6 +177,7 @@ export class DashboardClientComponent implements OnInit {
     this.numberTotalQuestion = $('.questionToAnalyze').length
     this.questionAnalyze()
     console.log(this.questionsChecked)
+    this.getRadio();
   //  this.showAnswers();
   }
 
