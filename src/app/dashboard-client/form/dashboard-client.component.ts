@@ -43,6 +43,7 @@ export class DashboardClientComponent implements OnInit {
     this.insertQuestion('insert');
     this.getAllQuestions();
     this.getActiveQuestions();
+    //this.showAnswers();
   }
 
   getAllQuestions(){
@@ -68,27 +69,32 @@ export class DashboardClientComponent implements OnInit {
         datasets: [
           {
             label: 'Alojamento',
-            data: [5, 2, 5, 1, 3, 1, 0.25, 4, 9, 7, 3, 2],
+            //data: [5, 2, 5, 1, 3, 1, 0.25, 4, 9, 7, 3, 2],
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             backgroundColor: '#F94144',
           },
           {
             label: 'Alimentação',
-            data: [7, 0.25, 3, 4, 0.25, 2, 0.25, 1, 1, 1, 2, 3],
+            //data: [7, 0.25, 3, 4, 0.25, 2, 0.25, 1, 1, 1, 2, 3],
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             backgroundColor: '#F3722C',
           },
           {
             label: 'Transporte',
-            data: [1, 2, 8, 1, 0.1, 0.25, 0.25, 0.25, 0.5, 2, 3, 3],
+           // data: [1, 2, 8, 1, 0.1, 0.25, 0.25, 0.25, 0.5, 2, 3, 3],
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             backgroundColor: '#F9C74F',
           },
           {
             label: 'Consumo',
-            data: [0.75, 2, 2, 3, 3, 0.75, 0.75, 4, 2, 2, 1, 4],
+            //data: [0.75, 2, 2, 3, 3, 0.75, 0.75, 4, 2, 2, 1, 4],
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             backgroundColor: '#90BE6D',
           },
           {
             label: 'Resíduos',
-            data: [2, 0.5, 3.5, 4, 5, 0.1, 0.5, 4.5, 4, 2, 5, 1],
+          //  data: [2, 0.5, 3.5, 4, 5, 0.1, 0.5, 4.5, 4, 2, 5, 1],
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             backgroundColor: '#577590',
           }
         ]
@@ -152,11 +158,14 @@ export class DashboardClientComponent implements OnInit {
     this.numberTotalQuestion = $('.questionToAnalyze').length
     this.questionAnalyze()
     console.log(this.questionsChecked)
+  //  this.showAnswers();
   }
 
-  showAnswers(){
-  //  this.getActiveQuestions()
-  }
+/*   showAnswers(){
+    //let r = $('#Aquestion1').val();
+    let r = $("input[name='question']:checked").val();
+    console.log("Respostas: " + r);
+  } */
 
   loadQuestion(idQuestion: number){
     this.questionRepository.getQuestion(idQuestion).subscribe(resposta => {

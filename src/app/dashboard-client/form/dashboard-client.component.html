@@ -99,7 +99,7 @@
                         <h5>1 - {{question.title}}</h5>
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="'Aquestion' + {{question.id}}" name="'question' + {{question.id}}" checked>
+                                <input type="radio" class="question1" id="'Aquestion' + {{question.id}}" name="'question' + {{question.id}}">
                                 {{question.answerA}}
                             </label>
                         </div>
@@ -120,7 +120,7 @@
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="'Dquestion' + {{question.id}}" name="'question' + {{question.id}}">
+                                <input type="radio" class="question1" id="'Dquestion' + {{question.id}}" name="'question' + {{question.id}}" value="{{question.answerD}}">
                                 {{question.answerD}}
                             </label>
                         </div>     
