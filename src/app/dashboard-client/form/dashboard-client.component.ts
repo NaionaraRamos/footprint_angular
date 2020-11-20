@@ -28,6 +28,7 @@ export class DashboardClientComponent implements OnInit {
   public formQuestion: FormGroup;
   public formPersonalInfo: FormGroup;
   questions: Question[] = [];
+  activeQuestions: Question[] = [];
   
   constructor(
     private questionRepository: QuestionRepository,
@@ -36,35 +37,30 @@ export class DashboardClientComponent implements OnInit {
   
   ngOnInit(): void {
     this.hiddenContent();
-    this.showContent('historic')
-    this.hiddenContentCategories()
-    this.insertChart()
-    this.insertQuestion('insert')
-    this.getAllQuestions()
+    this.showContent('historic');
+    this.hiddenContentCategories();
+    this.insertChart();
+    this.insertQuestion('insert');
+    this.getAllQuestions();
+    this.getActiveQuestions();
   }
 
   getAllQuestions(){
-    this.questionRepository.getAllQuestions();
-    console.log("QUESTÕES: " + this.questions);
-
-    /* for (let q in this.questionRepository.getAllQuestions(){
-      console.log("Q: " + q);
-      this.questions.push(q);
-    } */
-    //console.log(//questionRepository.getAllQuestions());
-   // console.log("QUESTÕES: " + this.questionRepository.getAllQuestions());
+    this.questions = [];
+    this.questionRepository.getAllQuestions().then(resposta => {
+      this.questions = resposta;
+    })
   }
 
-  // getAllQuestions()
-  // {
-  //   this.clientService.toList().subscribe(response =>
-  //       this.allQuestions = response
-  //   );
-  // }
+  getActiveQuestions(){
+    this.activeQuestions = [];
+    this.questionRepository.getActiveQuestions().then(resposta => {
+      this.activeQuestions = resposta;
+    })
+  }
 
   // Chart Draw
   insertChart(){
-    
     var myChart = new Chart('canvas', {
       type: 'bar',
       data: {
@@ -158,6 +154,10 @@ export class DashboardClientComponent implements OnInit {
     console.log(this.questionsChecked)
   }
 
+  showAnswers(){
+  //  this.getActiveQuestions()
+  }
+
   loadQuestion(idQuestion: number){
     this.questionRepository.getQuestion(idQuestion).subscribe(resposta => {
       this.formQuestion.controls.id.setValue(resposta.id);
@@ -176,7 +176,6 @@ export class DashboardClientComponent implements OnInit {
   }
   
   insertQuestion(form){
-
     let titleInput = $('#question').val()
     let answerAinput = $('#answerA').val()
     let weightAinput = $('#answerWeightA').val()

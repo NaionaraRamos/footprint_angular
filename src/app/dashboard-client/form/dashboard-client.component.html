@@ -56,7 +56,6 @@
                     <a (click)="showContent('adm')" class="colDashboard adm btnDashboard">Administrativo</a>
                 </li>
             </ul>
-            
         </div>
     </div>
 </div>
@@ -78,7 +77,6 @@
         <div class="row chartsPegada update">
             <div class="col-12">
                 <h3>Atualização  {{ teste }} </h3>
-                
                 <ul>
                     <li *ngFor="let register of  allQuestions; let i = index">
                         {{ i+ 1 }} - {{ register.mail }}
@@ -89,22 +87,6 @@
                     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
                 </p> -->
 
-
-                <!-- <ng-template pTemplate="body" let-cliente>
-                    <tr>
-                        <td>{{cliente.id}}</td>
-                        <td>{{cliente.nome}}</td>
-                        <td>{{cliente.email}}</td>
-                        <td>{{cliente.endereco.cep}}</td>
-                        <td class="deletar-atualizar">
-                            <p-button routerLink="/cliente/{{cliente.id}}" class="espaco" icon="pi pi-pencil"></p-button>
-                            <p-button (click)="excluir(cliente.id)" icon="pi pi-trash"></p-button>
-                        </td>
-                    </tr>
-                </ng-template>
-
-                 -->
-
                 <form 
                     #analyzeQuestionsForm="ngForm" 
                     (ngSubmit)="analyzeQuestions(analyzeQuestionsForm.form);" 
@@ -113,99 +95,36 @@
                     id="formQuestions"
                 >
                     
-                    <div class="questionToAnalyze">
-                        <h5><!-- 1 - Blablabla da pergunta --> </h5>
+                    <div class="questionToAnalyze" *ngFor="let question of activeQuestions">
+                        <h5>1 - {{question.title}}</h5>
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="Aquestion1" name="question1" checked>
-                                <!-- blablablabla da alternativa 1 -->
+                                <input type="radio" class="question1" id="'Aquestion' + {{question.id}}" name="'question' + {{question.id}}" checked>
+                                {{question.answerA}}
                             </label>
                         </div>
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="Bquestion1" name="question1">
-                               <!--  blablablabla da alternativa 2 -->
+                                <input type="radio" class="question1" id="'Bquestion' + {{question.id}}" name="'question' + {{question.id}}">
+                                {{question.answerB}}
                             </label>
                         </div>
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="Cquestion1" name="question1">
-                                <!-- blablablabla da alternativa 3 -->
+                                <input type="radio" class="question1" id="'Cquestion' + {{question.id}}" name="'question' + {{question.id}}">
+                                {{question.answerC}}
                             </label>
                         </div>
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="Dquestion1" name="question1">
-                             <!--    blablablabla da alternativa 4 -->
+                                <input type="radio" class="question1" id="'Dquestion' + {{question.id}}" name="'question' + {{question.id}}">
+                                {{question.answerD}}
                             </label>
                         </div>     
                     </div>
-
-                    <div class="questionToAnalyze">
-                        <h5><!-- 2 - Blablabla da pergunta  --></h5>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question2" name="question2" id="Aquestion2" name="question2" checked>
-                               <!--  blablablabla da alternativa 1 -->
-                            </label>
-                        </div>
-
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question2" name="question2" id="Bquestion2" name="question2">
-                                <!-- blablablabla da alternativa 2 -->
-                            </label>
-                        </div>
-
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question2" name="question2" id="Cquestion2" name="question2">
-                                <!-- blablablabla da alternativa 3 -->
-                            </label>
-                        </div>
-
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question2" name="question2" id="Dquestion2" name="question2">
-                               <!--  blablablabla da alternativa 4 -->
-                            </label>
-                        </div>     
-                    </div>
-
-                    <div class="questionToAnalyze">
-                        <h5><!-- 3 - Blablabla da pergunta --> </h5>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question3" name="question3" type="radio" id="Aquestion3" name="question3" checked>
-                                <!-- blablablabla da alternativa 1 -->
-                            </label>
-                        </div>
-
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question3" name="question3" type="radio" id="Bquestion3" name="question3">
-                               <!--  blablablabla da alternativa 2 -->
-                            </label>
-                        </div>
-
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question3" name="question3" type="radio" id="Cquestion3" name="question3">
-                              <!--   blablablabla da alternativa 3 -->
-                            </label>
-                        </div>
-
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question3" name="question3" type="radio" id="Dquestion3" name="question3">
-                              <!--   blablablabla da alternativa 4 -->
-                            </label>
-                        </div>     
-                    </div>
-
                     <button type="submit" class="btn btn-primary toAnalyze">Calcular CO2</button>
                 </form>
             </div>
@@ -255,7 +174,6 @@
                         <span>Resíduos</span>
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
                     </div>
-
                 </div>
             </div>
         </div>
@@ -282,9 +200,7 @@
                                     <div *ngIf="configurationsEmail.errors.required">
                                         <p>Campo e-mail é obrigatório.</p>
                                     </div>
-
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-12 col-lg-6">
@@ -298,13 +214,9 @@
                                     <div *ngIf="oldPassword.errors.required">
                                         <p>Campo senha antiga é obrigatório.</p>
                                     </div>
-
                                 </div>
-
-                            
                             </div>   
                         </div>
-                        
                     </div>
 
                     <div class="row">
@@ -319,9 +231,7 @@
                                     <div *ngIf="newPassword.errors.required">
                                         <p>Campo nova senha é obrigatório.</p>
                                     </div>
-
                                 </div>
-
                             </div>   
                         </div>
 
@@ -381,9 +291,7 @@
                             <div *ngIf="question.errors.required">
                                 <p>Campo obrigatório.</p>
                             </div>
-
-                        </div>
-                    
+                        </div>                    
                     </div>
 
                     <!-- Starts Insert Answers -->
@@ -398,9 +306,7 @@
                                 <div *ngIf="answerA.errors.required">
                                     <p>Campo obrigatório.</p>
                                 </div>
-
                             </div>
-
                         </div>
 
                         <div class="col-12 col-lg-4">
@@ -413,9 +319,7 @@
                                 <div *ngIf="answerWeightA.errors.required">
                                     <p>Campo obrigatório.</p>
                                 </div>
-
                             </div>
-                        
                         </div>
                     </div>
 
@@ -430,9 +334,7 @@
                                 <div *ngIf="answerB.errors.required">
                                     <p>Campo obrigatório.</p>
                                 </div>
-
                             </div>
-
                         </div>
 
                         <div class="col-12 col-lg-4">
@@ -445,9 +347,7 @@
                                 <div *ngIf="answerWeightB.errors.required">
                                     <p>Campo obrigatório.</p>
                                 </div>
-
                             </div>
-                        
                         </div>
                     </div>
 
@@ -462,9 +362,7 @@
                                 <div *ngIf="answerC.errors.required">
                                     <p>Campo obrigatório.</p>
                                 </div>
-
                             </div>
-
                         </div>
 
                         <div class="col-12 col-lg-4">
@@ -477,9 +375,7 @@
                                 <div *ngIf="answerWeightC.errors.required">
                                     <p>Campo obrigatório.</p>
                                 </div>
-
                             </div>
-                        
                         </div>
                     </div>
 
@@ -494,9 +390,7 @@
                                 <div *ngIf="answerD.errors.required">
                                     <p>Campo obrigatório.</p>
                                 </div>
-
                             </div>
-
                         </div>
 
                         <div class="col-12 col-lg-4">
@@ -509,9 +403,7 @@
                                 <div *ngIf="answerWeightD.errors.required">
                                     <p>Campo obrigatório.</p>
                                 </div>
-
-                            </div>
-                        
+                            </div>                        
                         </div>
                     </div>
 
@@ -532,6 +424,7 @@
                             <div class="form-group">
                                 <label for="selectCategory">Categoria</label>
                                 <select class="form-control" id="selectCategory">
+                                 <!--  <option></option> -->
                                   <option>ALIMENTAÇÃO</option>
                                   <option>ALOJAMENTO</option>
                                   <option>TRANSPORTE</option>
@@ -563,62 +456,25 @@
                     <tbody>
                         <tr *ngFor="let question of questions">
                             <td><span>{{question.id}}</span></td>
-                            <td><span>{{question.text}}</span></td>
+                            <td><span>{{question.title}}</span></td>
                             <td><span>{{question.status}}</span></td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <a data-idquestion="2" data-descriptionquestion="Bla bla bla da pergunta 2" class="text-danger font-weight-bold" (click)="deleteQuestion(question.id)">Excluir</a>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a data-idquestionupdate="2" data-descriptionquestionupdate="Bla bla bla da perunta 2"  class="text-success font-weight-bold" >Alterar</a>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
-                      <!-- <tr>
-                        <th scope="row">1</th>
-                        <td>Bla bla bla da pergunta 1</td>
-                        <td>ATIVO</td>
-                        <td>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <a data-idquestion="1" data-descriptionquestion="Bla bla bla da pergunta 1" class="text-danger font-weight-bold" >Excluir</a>
-                                </div>
-                                <div class="col-12 col-md-6 col-action">
-                                    <a data-idquestionupdate="1" data-descriptionquestionupdate="Bla bla bla da perunta 1"  class="text-success font-weight-bold" >Alterar</a>
-                                </div>
-                            </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Bla bla bla da pergunta 2</td>
-                        <td>RASCUNHO</td>
-                        <td>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <a data-idquestion="2" data-descriptionquestion="Bla bla bla da pergunta 2" class="text-danger font-weight-bold" >Excluir</a>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <a data-idquestionupdate="2" data-descriptionquestionupdate="Bla bla bla da perunta 2"  class="text-success font-weight-bold" >Alterar</a>
-                                </div>
-                            </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Bla bla bla da pergunta 3</td>
-                        <td>ATIVO</td>
-                        <td>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <a data-idquestion="3" data-descriptionquestion="Bla bla bla da pergunta 3" class="text-danger font-weight-bold">Excluir</a>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <a data-idquestionupdate="3" data-descriptionquestionupdate="Bla bla bla da perunta 3"  class="text-success font-weight-bold">Alterar</a>
-                                </div>
-                            </div>
-                        </td>
-                      </tr> -->
                     </tbody>
                 </table>
-
             </div>
             <!-- Ends To Show All Question of the Database -->
         </div> 
         <!-- Ends Insert Content to Administrator -->
-
     </div>
 </div>
 <!-- Start Container-Fluid ChartsPegada -->
