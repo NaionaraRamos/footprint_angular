@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   logRequest: true,
   traceRequest: true,
-  URLSERVIDOR: 'http://localhost:8080/',
-  //URLSERVIDOR: 'https://footprint-back.herokuapp.com/',
+  //URLSERVIDOR: 'http://localhost:8080/',
+  URLSERVIDOR: 'https://footprint-back.herokuapp.com/',
 };
 
 /*
