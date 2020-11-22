@@ -79,7 +79,7 @@
                 <h3>Atualização  {{ teste }} </h3>
                 <ul>
                     <li *ngFor="let register of  allQuestions; let i = index">
-                        {{ i+ 1 }} - {{ register.mail }}
+                        {{ i + 1 }} - {{ register.mail }}
                     </li>
                 </ul>
 
@@ -96,63 +96,32 @@
                 >
                     
                     <div class="questionToAnalyze" *ngFor="let question of activeQuestions">
-                        <h5>1 - {{question.title}}</h5>
+                        <h5>{{question.id}} - {{question.title}}</h5>
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="'Aquestion' + {{question.id}}" name="'question' + {{question.id}}">
+                                <input type="radio" class="question1" id="Aquestion{{question.id}}" name="question{{question.id}}" value="{{question.answerA}}">
                                 {{question.answerA}}
                             </label>
                         </div>
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="'Bquestion' + {{question.id}}" name="'question' + {{question.id}}">
+                                <input type="radio" class="question1" id="Bquestion{{question.id}}" name="question{{question.id}}" value="{{question.answerB}}">
                                 {{question.answerB}}
                             </label>
                         </div>
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="'Cquestion' + {{question.id}}" name="'question' + {{question.id}}">
+                                <input type="radio" class="question1" id="Cquestion{{question.id}}" name="question{{question.id}}" value="{{question.answerC}}">
                                 {{question.answerC}}
                             </label>
                         </div>
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="'Dquestion' + {{question.id}}" name="'question' + {{question.id}}" value="{{question.answerD}}">
+                                <input type="radio" class="question1" id="Dquestion{{question.id}}" name="question{{question.id}}" value="{{question.answerD}}">
                                 {{question.answerD}}
-                            </label>
-                        </div>     
-                    </div>
-
-<div class="questionToAnalyze">
-                        <h5>1 - Blablabla da pergunta </h5>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question1" id="Aquestion1" name="question1" checked>
-                                blablablabla da alternativa 1
-                            </label>
-                        </div>
-
-                        <div class=                    "radio">
-                            <label>
-                                <input type="radio" class="question1" id="Bquestion1" name="question1">
-                                blablablabla da alternativa 2
-                            </label>
-                        </div>
-
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question1" id="Cquestion1" name="question1">
-                                blablablabla da alternativa 3
-                            </label>
-                        </div>
-
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="question1" id="Dquestion1" name="question1">
-                                blablablabla da alternativa 4
                             </label>
                         </div>     
                     </div>

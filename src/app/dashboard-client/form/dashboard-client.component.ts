@@ -32,10 +32,8 @@ export class DashboardClientComponent implements OnInit {
   
   constructor(
     private questionRepository: QuestionRepository,
-     //private clientService: ClientServiceService
       ) { }
   
-
   ngOnInit(): void {
     this.hiddenContent();
     this.showContent('historic');
@@ -44,32 +42,7 @@ export class DashboardClientComponent implements OnInit {
     this.insertQuestion('insert');
     this.getAllQuestions();
     this.getActiveQuestions();
-    //this.showAnswers();
-    this.getRadio();
-  }
-
-  getRadio(){
-    let r = $('input[name="question5"]:checked').val();
-    //let s = document.querySelector('input[name="question1"]:checked').value;
-    console.log("GetRadio: " + r);
-    //console.log("GetRadio2: " + s);
-
-  /*   document.getElementById("btnSubmit").onclick = function() {
-      var radios = document.getElementsByName("Nome do elemento botão");
-      for (var i = 0; i < radios.length; i++) {
-          if (radios[i].checked) {
-              var IdEscolhido = radios[i].value;
-              console.log("Escolheu: " + IdEscolhido);
-          }
-      }
-  }; */
-  }
-
-  getAllQuestions(){
-    this.questions = [];
-    this.questionRepository.getAllQuestions().then(resposta => {
-      this.questions = resposta;
-    })
+    this.getAnswers();
   }
 
   getActiveQuestions(){
@@ -79,7 +52,38 @@ export class DashboardClientComponent implements OnInit {
     })
   }
 
-  // Chart Draw
+  getAnswers() {
+    console.log(this.activeQuestions);
+    let answers = []
+
+    for(let i of this.activeQuestions) {
+    
+      let id = i['id'];
+      console.log(id);
+      let r = $('input[name="question' + id + '"]:checked').val();
+      answers.push(id, r);
+      console.log("GetRadio: " + r + "; id: " + id);
+    }
+
+   //teste
+   /*  console.log("Respostas: " + answers);
+
+    for (let i = 0; i < answers.length; i++) {
+      if ( i % 2 == 0 ) {
+        console.log( i + " - Id: " + answers[i] )
+      } else {
+        console.log( i + " - Resposta: " + answers[i] )
+    }
+  } */
+}
+
+  getAllQuestions(){
+    this.questions = [];
+    this.questionRepository.getAllQuestions().then(resposta => {
+      this.questions = resposta;
+    })
+  }
+
   insertChart(){
     var myChart = new Chart('canvas', {
       type: 'bar',
@@ -147,27 +151,23 @@ export class DashboardClientComponent implements OnInit {
     });
   }
 
-  // Hide Content Buttons Menu 
   hiddenContent(){
       this.classContents.forEach(iten => {
           $('.row.'+iten).hide()
       })
   }
 
-  // Show Content Buttons Menu
   showContent(nameRowToShow){
     this.hiddenContent()
     $('.row.'+nameRowToShow).show()
   }
   
-  // Hide Content Categories
   hiddenContentCategories(){
       this.classTips.forEach(iten => {
           $('.row.'+iten).hide()
       })
   }
   
-  //Show Content Dropdown
   showContentTips(tipCategory){
     this.hiddenContentCategories()
     $('.row.'+tipCategory).show()
@@ -176,16 +176,9 @@ export class DashboardClientComponent implements OnInit {
   analyzeQuestions(form){
     this.numberTotalQuestion = $('.questionToAnalyze').length
     this.questionAnalyze()
-    console.log(this.questionsChecked)
-    this.getRadio();
-  //  this.showAnswers();
+   // console.log(this.questionsChecked)
+    this.getAnswers();
   }
-
-/*   showAnswers(){
-    //let r = $('#Aquestion1').val();
-    let r = $("input[name='question']:checked").val();
-    console.log("Respostas: " + r);
-  } */
 
   loadQuestion(idQuestion: number){
     this.questionRepository.getQuestion(idQuestion).subscribe(resposta => {
@@ -249,9 +242,7 @@ export class DashboardClientComponent implements OnInit {
      })
   }
     
-  // To analyze the alternatives choose of the questions
-  questionAnalyze ()//question component selected by class 
-  {
+  questionAnalyze (){
       let questionOptions = {
           number: 0,
           letter: ''
