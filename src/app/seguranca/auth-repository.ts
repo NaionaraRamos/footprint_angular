@@ -17,7 +17,7 @@ export class AuthRepository {
     
     post(usuario: string, senha: string) {
         const body = `username=${usuario}&password=${senha}&grant_type=password`;
-        console.log("Credenciais: " + body)
+       
         const headers = new HttpHeaders({
           'Content-Type':'application/x-www-form-urlencoded',
           'Authorization':'Basic ZnJvbnRlbmQtY2xpZW50OmRpZ2l0YWw=' });

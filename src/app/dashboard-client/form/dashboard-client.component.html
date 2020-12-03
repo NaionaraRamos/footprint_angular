@@ -7,7 +7,6 @@
 </head>
 <body>
 
-<!-- Start Container-Fluid Pegada -->
 <div class="container-fluid navbarPegada">
 <div class="container navbarPegada">
     <div class="row rowPegada">
@@ -24,6 +23,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                    <span class="nav-item nav-link">{{user}}</span>
+                    <!-- <span class="nav-item nav-link">{{userId}}</span> -->
                     <a class="nav-link" routerLink="/login">sair</a>
                 </li>
             </ul>
@@ -32,49 +33,65 @@
     </div>
 </div>
 </div>
-<!-- Ends Container-Fluid Pegada -->
 
 <!-- Start Container-Fluid Dashboard -->
 <div class="container-fluid dashboard">
-    <div class="container dashboard">
+    <div class="container dashboard" id="area_user">
         <div class="row dashboard">
 
             <ul class="menuDashboard">
                 <li>
-                    <a (click)="showContent('historic')" class="colDashboard historic btnDashboard">Histórico</a>
+                    <a (click)="showContent('update')" id="atualizacao" class="colDashboard update btnDashboard">Atualização</a>
                 </li>
                 <li>
-                    <a (click)="showContent('update')" class="colDashboard update btnDashboard">Atualização</a>
+                    <a (click)="showContent('historic')" id="historico" class="colDashboard historic btnDashboard">Histórico</a>
                 </li>
                 <li>
-                    <a (click)="showContent('tips')" class="colDashboard tips btnDashboard">Dicas</a>                
+                    <a (click)="showContent('tips')" id="dicas" class="colDashboard tips btnDashboard">Dicas</a>                
                 </li>
                 <li>
-                    <a (click)="showContent('configurations')" class="colDashboard configurations btnDashboard">Configurações</a>
+                    <a (click)="showContent('configurations')" id="conf" class="colDashboard configurations btnDashboard">Configurações</a>
+                </li>
+               <!--  <li>
+                    <a (click)="showContent('adm')" id="admin" class="colDashboard adm btnDashboard">Administrativo</a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="container dashboard" id="area_admin">
+        <div class="row dashboard">
+
+            <ul class="menuDashboard">
+              <!--   <li>
+                    <a (click)="showContent('update')" id="atualizacao" class="colDashboard update btnDashboard">Atualização</a>
                 </li>
                 <li>
-                    <a (click)="showContent('adm')" class="colDashboard adm btnDashboard">Administrativo</a>
+                    <a (click)="showContent('historic')" id="historico" class="colDashboard historic btnDashboard">Histórico</a>
+                </li>
+                <li>
+                    <a (click)="showContent('tips')" id="dicas" class="colDashboard tips btnDashboard">Dicas</a>                
+                </li> -->
+                <li>
+                    <a (click)="showContent('configurations')" id="conf" class="colDashboard configurations btnDashboard">Configurações</a>
+                </li>
+                <li>
+                    <a (click)="showContent('adm')" id="admin" class="colDashboard adm btnDashboard">Administrativo</a>
                 </li>
             </ul>
         </div>
     </div>
+
 </div>
 <!-- Ends Container-Fluid Dashboard -->
 
 <!-- Start Container-Fluid ChartsPegada -->
 <div class="container-fluid chartsPegada">
     <div class="container chartsPegada">
-        <!-- Start Insert Content to Historic -->
-        <div class="row chartsPegada historic">
-            <h3>Histórico</h3>
-            <div class="chart-container">
-                <canvas id="canvas"></canvas>
-            </div>
-        </div>
-        <!-- Ends Insert Content to Historic -->
 
-        <!-- Start Insert Content to Update -->
-        <div class="row chartsPegada update">
+
+
+        <div class="row chartsPegada update" id="at">
             <div class="col-12">
                 <h3>Atualização  {{ teste }} </h3>
                 <ul>
@@ -83,57 +100,60 @@
                     </li>
                 </ul>
 
-                <!-- <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                </p> -->
-
                 <form 
-                    #analyzeQuestionsForm="ngForm" 
+                    #analyzeQuestionsForm="ngForm"
                     (ngSubmit)="analyzeQuestions(analyzeQuestionsForm.form);" 
                     class="formAnlyzeQuetions" 
                     action=""
                     id="formQuestions"
                 >
-                    
-                    <div class="questionToAnalyze" *ngFor="let question of activeQuestions">
-                        <h5>{{question.id}} - {{question.title}}</h5>
+                
+                    <div class="questionToAnalyze" *ngFor="let question of activeQuestions; let i = index">
+                        <h5>{{ i + 1 }} - {{question.title}}  </h5>
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="Aquestion{{question.id}}" name="question{{question.id}}" value="{{question.answerA}}">
+                                <input type="radio" checked class="question{{i+1}}" id="Aquestion{{question.id}}" name="question{{question.id}}" [attr.data-category]="question.category" value="{{question.weightA}}">
                                 {{question.answerA}}
                             </label>
                         </div>
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="Bquestion{{question.id}}" name="question{{question.id}}" value="{{question.answerB}}">
+                                <input type="radio" class="question{{i+1}}" id="Bquestion{{question.id}}" name="question{{question.id}}" [attr.data-category]="question.category" value="{{question.weightB}}">
                                 {{question.answerB}}
                             </label>
                         </div>
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="Cquestion{{question.id}}" name="question{{question.id}}" value="{{question.answerC}}">
+                                <input type="radio" class="question{{i+1}}" id="Cquestion{{question.id}}" name="question{{question.id}}" [attr.data-category]="question.category" value="{{question.weightC}}">
                                 {{question.answerC}}
                             </label>
                         </div>
 
                         <div class="radio">
                             <label>
-                                <input type="radio" class="question1" id="Dquestion{{question.id}}" name="question{{question.id}}" value="{{question.answerD}}">
+                                <input type="radio" class="question{{i+1}}" id="Dquestion{{question.id}}" name="question{{question.id}}" [attr.data-category]="question.category" value="{{question.weightD}}">
                                 {{question.answerD}}
                             </label>
                         </div>     
                     </div>
-                    
+                    <!-- onclick="document.location='#historic'" -->
                     <button type="submit" class="btn btn-primary toAnalyze">Calcular CO2</button>
                 </form>
             </div>
         </div>
-        <!-- Ends Insert Content to Update -->
 
-        <!-- Start Insert Content to Tips -->
-        <div class="row chartsPegada tips">
+           <div class="row chartsPegada historic" id="hist">
+               <!--  id="historic" -->
+            <h3>Histórico</h3>
+            <div class="chart-container">
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+
+
+        <div class="row chartsPegada tips" id="tip'">
             <div class="col-12">
 
                 <h3>Dicas</h3>
@@ -156,35 +176,38 @@
                 </div>
                 <div class="contentCategory">
                     <div class="row cat1">
-                        <span>Alojamento</span>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                        <span>Alojamento</span><br><br><br>
+                        <p><b>1. Economize água!</b> Economizar água é uma tarefa bastante simples. Para isso, basta que algumas práticas do dia a dia sejam mudadas. Uns dos pontos mais importantes são: reduzir o tempo de banho e verificar se há vazamentos de água em casa. Além disso, aproveitar a água da chuva e reaproveitar a água da máquina de lavar também são ótimas dicas!</p><br>
+                        <p><b>2. Economize energia.</b> Para economizar energia, é importante lembrar-se de ligar apenas os aparelhos elétricos necessários. Ao utilizar o computador, por exemplo, não é necessário ligar a televisão. Outro ponto importante é, ao sair de um ambiente, verificar se a luz está ligada e, se sim, apagá-la. A redução do tempo de banho também é uma importante dica para economizar energia.</p>
                     </div>
                     <div class="row cat2">
-                        <span>Alimentação</span>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                        <span>Alimentação</span><br><br><br>
+                        <p><b>1. Sempre que possível, opte por alimentos orgânicos.</b> Ao escolher alimentos orgânicos (livres de agrotóxicos), estamos não só protegendo a nossa saúde, como também o meio ambiente, que fica livre desses produtos.</p><br>
+                        <p><b>2. Reduza o consumo de carne.</b> O consumo de carne prejudica o meio ambiente, pois, para criar pastagens, uma grande área é desmatada. Além disso, é grande a quantidade de água consumida para criar os animais e para garantir todo o processamento da carne. Isso sem falar na grande quantidade de gases de efeito estufa emitidos pelo gado.</p>
                     </div>
                     <div class="row cat3">
-                        <span>Transportes</span>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                        <span>Transportes</span><br><br><br>
+                        <p><b>1. Utilize veículo apenas quando necessário.</b> Os carros são responsáveis pela liberação de uma grande quantidade de poluentes na atmosfera, sendo assim, restringir seu uso é importante. Se o local de destino é próximo, por que não ir a pé? É importante lembrar que as pessoas que possuem carro devem sempre realizar a manutenção do veículo para evitar que mais poluentes sejam liberados.</p><br>
+                        <p><b>2. Vá de bicicleta ao trabalho!</b> Além de cumprir a sua cota diária de exercícios físicos, pedalar tira você da monotonia, revela novos cenários e, claro, um pouco de ar fresco na cara faz sempre bem.</p>
                     </div>
                     <div class="row cat4">
-                        <span>Consumo</span>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                        <span>Consumo</span><br><br><br>
+                        <p><b>1. Evite o consumismo.</b> A chave para esse ponto é sempre perguntar: “Eu realmente necessito disso?” Às vezes compramos coisas sem necessidade naquele momento e contribuímos, assim, para o uso intensivo de recursos naturais.</p><br>
+                        <p><b>2. Use ecobags e não sacolas plásticas.</b> Vamos lá, é tudo questão de adaptação e menos de "ecologia". Não saia por aí comprando aquelas ecobags vendidas em mercados, além de estragarem facilmente, o volume que elas comportam é mínimo. Procure por embalagens maiores.</p>
                     </div>
                     <div class="row cat5">
-                        <span>Resíduos</span>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                        <span>Resíduos</span><br><br><br>
+                        <p><b>1. Sempre faça o descarte correto do lixo.</b> Descartar o lixo adequadamente evita a poluição e até mesmo a propagação de doenças. Ao jogar lixo em um terreno baldio, por exemplo, você pode estar contribuindo para o aumento da população de ratos, baratas e até mesmo de mosquitos-da-dengue.</p><br>
+                        <p><b>2. Recicle seu lixo.</b> Essa medida evita o gasto desnecessário dos recursos naturais e ainda ajuda a diminuir a concentração de lixo no ambiente.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Ends Insert Content to Tips -->
 
-        <!-- Start Insert Content to Configurations -->
-        <div class="row chartsPegada configurations">
+
+        <div class="row chartsPegada configurations" id="config">
             <h3>Configurações Gerais</h3>
 
-            <!--Starts Configuration Painel-->
             <div class="col-12 squareConfigurations">
                 <h5>Configurações de Acesso</h5>
 
@@ -195,7 +218,6 @@
                                 <label for="configurationsEmail">E-mail</label>
                                 <input type="email" id="configurationsEmail" name="configurationsEmail" required class="form-control" placeholder="Usuário" ngModel #configurationsEmail="ngModel" >
                                 
-                                <!-- Validation Field E-mail -->
                                 <div *ngIf="configurationsEmail.invalid && (configurationsEmail.dirty || configurationsEmail.touched)" class="alert alert-danger">
 
                                     <div *ngIf="configurationsEmail.errors.required">
@@ -209,7 +231,6 @@
                                 <label for="oldPassword">Senha antiga</label>
                                 <input type="password" id="oldPassword" name="oldPassword" required class="form-control" placeholder="Senha antiga" ngModel #oldPassword="ngModel" >
                                                                 
-                                <!-- Validation Field Old Password -->
                                 <div *ngIf="oldPassword.invalid && (oldPassword.dirty || oldPassword.touched)" class="alert alert-danger">
 
                                     <div *ngIf="oldPassword.errors.required">
@@ -226,7 +247,6 @@
                                 <label for="newPassword">Nova senha</label>
                                 <input type="password" id="newPassword" name="newPassword" required class="form-control" placeholder="Nova senha" ngModel #newPassword="ngModel">
                                                                                             
-                                <!-- Validation Field New Password -->
                                 <div *ngIf="newPassword.invalid && (newPassword.dirty || newPassword.touched)" class="alert alert-danger">
 
                                     <div *ngIf="newPassword.errors.required">
@@ -241,7 +261,6 @@
                                 <label for="newPasswordConfirm">Confirme a nova senha</label>
                                 <input type="password" name="newPasswordConfirm" id="newPasswordConfirm" compare="newPassword" class="form-control" required placeholder="Repita a nova senha" ngModel #newPasswordConfirm="ngModel">
                                 
-                                <!-- Validation Field New Password Confirmation -->
                                 <div *ngIf="newPasswordConfirm.invalid && (newPasswordConfirm.dirty || newPasswordConfirm.touched)" class="alert alert-danger">
 
                                     <div *ngIf="newPasswordConfirm.errors.required">
@@ -251,26 +270,20 @@
                                     <div *ngIf="newPasswordConfirm.errors.compare">
                                         <p>Senhas devem ser idênticas.</p>
                                     </div>
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                        
                     <button type="submit" id="btnUpdatePassword" class="btn btn-primary btnUpdatePassword">Alterar</button>
-
                 </form>
-
-
             </div>
-            <!--Ends Configuration Painel-->
-
         </div>
-        <!-- Ends Insert Content to Configurations -->
+
+
+
 
         <!-- Start Insert Content to Administrator -->
-        <div class="row chartsPegada adm">
+        <div class="row chartsPegada adm" id="non-user">
             <h3>Administração</h3>
 
             <!-- Start for Insert Qustion in the Database -->
@@ -284,7 +297,7 @@
                     <h5>Cadastro de Pergunta</h5>
                     <div class="form-group">
                         <label for="question">Pergunta:</label>
-                        <input type="text" class="form-control" id="question" name="question" required placeholder="Insira a pergunta" ngModel #question="ngModel">
+                        <input type="text" class="form-control" id="question" name="question" required placeholder="Insira a pergunta" [(ngModel)]="titleQuestionUpdate" #question="ngModel">
                     
                         <!-- Validation Field Question -->
                         <div *ngIf="question.invalid && (question.dirty || question.touched)" class="alert alert-danger">
@@ -299,7 +312,7 @@
                     <div class="row">
                         <div class="col-12 col-lg-8">
                             <label for="answerA">Alternativa A:</label>
-                            <input type="text" class="form-control" id="answerA" name="answerA" required ngModel #answerA="ngModel" placeholder="Resposta A">
+                            <input type="text" class="form-control" id="answerA" name="answerA" required  [(ngModel)]="answerAupdate" #answerA="ngModel" placeholder="Resposta A">
 
                             <!-- Validation Field Answer A -->
                             <div *ngIf="answerA.invalid && (answerA.dirty || answerA.touched)" class="alert alert-danger">
@@ -312,7 +325,7 @@
 
                         <div class="col-12 col-lg-4">
                             <label for="answerWeightA">Peso (A):</label>
-                            <input type="number" class="form-control" id="answerWeightA" name="answerWeightA" required ngModel #answerWeightA="ngModel" placeholder="Peso A">
+                            <input type="number" class="form-control" id="answerWeightA" name="answerWeightA" required [(ngModel)]="weightAupdate"  #answerWeightA="ngModel" placeholder="Peso A">
                         
                             <!-- Validation Field Weight Answer A -->
                             <div *ngIf="answerWeightA.invalid && (answerWeightA.dirty || answerWeightA.touched)" class="alert alert-danger">
@@ -327,9 +340,9 @@
                     <div class="row">
                         <div class="col-12 col-lg-8">
                             <label for="answerB">Alternativa B:</label>
-                            <input type="text" class="form-control" id="answerB" name="answerB" required ngModel #answerB="ngModel" placeholder="Resposta B">
+                            <input type="text" class="form-control" id="answerB" name="answerB" required [(ngModel)]="answerBupdate" #answerB="ngModel" placeholder="Resposta B">
 
-                            <!-- Validation Field Answer A -->
+                            <!-- Validation Field Answer B -->
                             <div *ngIf="answerB.invalid && (answerB.dirty || answerB.touched)" class="alert alert-danger">
 
                                 <div *ngIf="answerB.errors.required">
@@ -340,9 +353,9 @@
 
                         <div class="col-12 col-lg-4">
                             <label for="answerWeightB">Peso (B):</label>
-                            <input type="number" class="form-control" id="answerWeightB" name="answerWeightB" required ngModel #answerWeightB="ngModel" placeholder="Peso B">
+                            <input type="number" class="form-control" id="answerWeightB" name="answerWeightB" required [(ngModel)]="weightBupdate" #answerWeightB="ngModel" placeholder="Peso B">
                         
-                            <!-- Validation Field Weight Answer A -->
+                            <!-- Validation Field Weight Answer B -->
                             <div *ngIf="answerWeightB.invalid && (answerWeightB.dirty || answerWeightB.touched)" class="alert alert-danger">
 
                                 <div *ngIf="answerWeightB.errors.required">
@@ -355,9 +368,9 @@
                     <div class="row">
                         <div class="col-12 col-lg-8">
                             <label for="answerC">Alternativa C:</label>
-                            <input type="text" class="form-control" id="answerC" name="answerC" required ngModel #answerC="ngModel" placeholder="Resposta C">
+                            <input type="text" class="form-control" id="answerC" name="answerC" required [(ngModel)]="answerCupdate" #answerC="ngModel" placeholder="Resposta C">
 
-                            <!-- Validation Field Answer A -->
+                            <!-- Validation Field Answer C -->
                             <div *ngIf="answerC.invalid && (answerC.dirty || answerC.touched)" class="alert alert-danger">
 
                                 <div *ngIf="answerC.errors.required">
@@ -368,9 +381,9 @@
 
                         <div class="col-12 col-lg-4">
                             <label for="answerWeightC">Peso (C):</label>
-                            <input type="number" class="form-control" id="answerWeightC" name="answerWeightC" required ngModel #answerWeightC="ngModel" placeholder="Peso C">
+                            <input type="number" class="form-control" id="answerWeightC" name="answerWeightC" required [(ngModel)]="weightCupdate"  #answerWeightC="ngModel" placeholder="Peso C">
                         
-                            <!-- Validation Field Weight Answer A -->
+                            <!-- Validation Field Weight Answer C -->
                             <div *ngIf="answerWeightC.invalid && (answerWeightC.dirty || answerWeightC.touched)" class="alert alert-danger">
 
                                 <div *ngIf="answerWeightC.errors.required">
@@ -383,9 +396,9 @@
                     <div class="row">
                         <div class="col-12 col-lg-8">
                             <label for="answerD">Alternativa D:</label>
-                            <input type="text" class="form-control" id="answerD" name="answerD" required ngModel #answerD="ngModel" placeholder="Resposta D">
+                            <input type="text" class="form-control" id="answerD" name="answerD" required [(ngModel)]="answerDupdate" #answerD="ngModel" placeholder="Resposta D">
 
-                            <!-- Validation Field Answer A -->
+                            <!-- Validation Field Answer D -->
                             <div *ngIf="answerD.invalid && (answerD.dirty || answerD.touched)" class="alert alert-danger">
 
                                 <div *ngIf="answerD.errors.required">
@@ -396,9 +409,9 @@
 
                         <div class="col-12 col-lg-4">
                             <label for="answerWeightD">Peso (D):</label>
-                            <input type="number" class="form-control" id="answerWeightD" name="answerWeightD" required ngModel #answerWeightD="ngModel" placeholder="Peso D">
+                            <input type="number" class="form-control" id="answerWeightD" name="answerWeightD" required [(ngModel)]="weightDupdate"  #answerWeightD="ngModel" placeholder="Peso D">
                         
-                            <!-- Validation Field Weight Answer A -->
+                            <!-- Validation Field Weight Answer D -->
                             <div *ngIf="answerWeightD.invalid && (answerWeightD.dirty || answerWeightD.touched)" class="alert alert-danger">
 
                                 <div *ngIf="answerWeightD.errors.required">
@@ -436,7 +449,7 @@
                         </div>
                     </div>
                     <!-- Ends Insert Answers -->
-
+                    <span id="warningFieldsInsertQuestion"  class='error'>Não são permitidos campos vazios.</span>
                     <button type="submit" id="btnUpdateOrInsert" class="btn btn-primary toInsertQuestion">Cadastrar</button>
                 </form>
             </div>
@@ -445,6 +458,7 @@
             <!-- Start To Show All Question of the Database -->
             <div class="col-12 squareAllQuestions adm table-responsive">
                 <h5>Perguntas Cadastradas</h5>
+
                 <table class="table">
                     <thead>
                       <tr>
@@ -462,10 +476,10 @@
                             <td>
                                 <div class="row">
                                     <div class="col-12 col-md-6">
-                                        <a data-idquestion="2" data-descriptionquestion="Bla bla bla da pergunta 2" class="text-danger font-weight-bold" (click)="deleteQuestion(question.id)">Excluir</a>
+                                        <a class="text-danger font-weight-bold" (click)="open(content,question.title,question.id)">Excluir</a>
                                     </div>
                                     <div class="col-12 col-md-6">
-                                        <a data-idquestionupdate="2" data-descriptionquestionupdate="Bla bla bla da perunta 2"  class="text-success font-weight-bold" >Alterar</a>
+                                        <a class="text-success font-weight-bold" (click)="prepareToUpdateFields(question.title,question.answerA,question.answerB,question.answerC,question.answerD,question.weightA,question.weightB,question.weightC,question.weightD)" >Alterar</a>
                                     </div>
                                 </div>
                             </td>
@@ -478,10 +492,8 @@
         <!-- Ends Insert Content to Administrator -->
     </div>
 </div>
-<!-- Start Container-Fluid ChartsPegada -->
 
 
-<!-- Start Container-Fluid Footer -->
 <div class="container-fluid footer">
 <div class="container footer">
     <div class="row footer">
@@ -495,7 +507,6 @@
     </div>
 </div>
 </div>
-<!-- Ends Container-Fluid Footer -->
 
 <footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -507,25 +518,20 @@
 </body>
 </html>
 
-<!--  Start Modal Confirm To Delete Question for Admintrative Panel -->
-<div class="modal" id="modalConfirmDeleteQuestion" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Confirmacão</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            <input id="idQuestionDelete" hidden type="text" value="1">
-          </button>
-        </div>
-        <div class="modal-body">
-            <h5>Deseja excluir&nbsp;<span id="descriptionDelete">blablabla</span>?</h5>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal">CANCELAR</button>
-          <button type="button" class="btn btn-danger efectDeleteQuestion" >EXCLUIR</button>
-        </div>
-      </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Confirmar exclusão</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-</div>
-<!-- Ends Modal Confirm To Delete Question for Admintrative Panel -->
+    <div class="modal-body">
+      <span>Deseja excluir <strong>{{ questionToBeDeleted }}</strong>?</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Não</button>
+        <button type="button" class="btn btn-success" (click)="deleteQuestion(questionIdToBeDeleted)">Sim</button>
+    </div>
+</ng-template>  
+<hr>

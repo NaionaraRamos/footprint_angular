@@ -56,14 +56,7 @@ export class RegisterClientComponent implements OnInit {
       password: this.formRegister.value.inputPassword
     } 
 
-    console.log(this.client.id);
-    console.log(this.client.name);
-    console.log(this.client.surname);
-    console.log(this.client.mail);
-    console.log(this.client.password);
-
     this.repositorio.postUser(this.client).subscribe(resposta => {
-      console.log("Resposta: " + resposta);
       
       this.client = {
         id: null, name: '', surname: '', mail: '', password: '' };

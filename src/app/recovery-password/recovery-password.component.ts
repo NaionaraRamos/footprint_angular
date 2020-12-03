@@ -34,8 +34,7 @@ export class RecoveryPasswordComponent implements OnInit {
     this.router.navigate(['/login']);
 
     let emailRecuperacao = this.formRecovery.get('recoveryEmail').value;
-    console.log(emailRecuperacao);
-
+    
    /*  this.client = {
        email: emailRecuperacao
      }; */

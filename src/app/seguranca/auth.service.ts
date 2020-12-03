@@ -15,18 +15,16 @@ export class AuthService {
 
   login(usuario: string, senha: string){
     
-    console.log("<<<<<<<<<<<<<<<<<<< Login >>>>>>>>>>>>>>>>>>>>>>")
     return this.repository.post(usuario, senha).subscribe(resposta => {
         
         const json: JSON = JSON.parse(JSON.stringify(resposta));
         
         this.armazenarToken(json['data']['access_token']);
         
-        console.log('Novo access token criado! '+JSON.stringify(this.jwtPayload));
         this.router.navigate(['/dashboard']);
       },
         (e) => {
-          console.log(e.error.error_description);      
+                
         });
   }
 
@@ -45,13 +43,12 @@ export class AuthService {
   }
 
   logout() {
-    console.log("<<<<<<<<<<<<<<<<<<< Logout >>>>>>>>>>>>>>>>>>>>>>")
     return this.repository.postLogout().subscribe(resposta => {
         this.limparAccessToken();
         this.router.navigate(['/login']);
       },
       (e) => {
-        console.log(e.error.error_description);      
+   
       }); 
   }
 
@@ -80,14 +77,13 @@ export class AuthService {
   }
 
   obterNovoAccessToken(){    
-    console.log("<<<<<<<<<<<<<<<<<<< RefreshToken >>>>>>>>>>>>>>>>>>>>>>")
     return this.repository.postRefreshToken().subscribe(resposta => {
       const json: JSON = JSON.parse(JSON.stringify(resposta));
       this.armazenarToken(json['data']['access_token']);
-      console.log('Novo access token criado! '+JSON.stringify(this.jwtPayload));
-      },
+   
+     },
       (e) => {
-        console.log(e.error.error_description);     
+    
       });  
   }
 }

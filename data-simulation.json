@@ -226,5 +226,73 @@
 	]
 }
 
+//Structure of All Questions
+[
+	{
+		'question' : 'o que é?',
+		'altA': 'alternativa a',
+		'weigthA': 'peso 10'
+		'altB': 'alternativa b',
+		'weigthB': 'peso 20'
+		'altC': 'alternativa c',
+		'weigthC': 'peso 30'
+		'altD': 'alternativa d',
+		'weigthD': 'peso 40'
+	},
+
+	{
+		'id'
+		'question' : 'o que é?',
+		'altA': 'alternativa a',
+		'weigthA': 'peso 10'
+		'altB': 'alternativa b',
+		'weigthB': 'peso 20'
+		'altC': 'alternativa c',
+		'weigthC': 'peso 30'
+		'altD': 'alternativa d',
+		'weigthD': 'peso 40'
+	}	
+	
+]
+
+[
+	1:{
+		'id':'2',OK
+		'number':'1',OK
+		'letter':'A',OK
+		'weightChoice': '40',OK
+		'category': 'consumo',OK
+	},
+	2:{
+		'id':'3',OK
+		'number':'2',OK
+		'letter':'C',OK
+		'weightChoice': '20',OK
+		'category': 'consumo',OK
+	}
+]
+
+//Structure of the users
+{
+
+	{
+		'name': 'ewerton',
+		'mail': 'ewerton@mail.com',
+		'password': '123'
+		'historic': {
+			'janeiro': '20points',
+			'fevereiro': '20points',
+		}
+	},
+	{
+		'name': 'ewerton',
+		'mail': 'ewerton@mail.com',
+		'password': '123'
+		'historic': {
+			'janeiro': '20points',
+			'fevereiro': '20points',
+		}
+	},
+}
 
 

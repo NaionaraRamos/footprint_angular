@@ -45,7 +45,7 @@ export class QuestionRepository {
     }
 
     putQuestion(param: Question){
-        console.log("Atualizando pergunta...")
+        
         return this.http
             .put<void>(`${environment.URLSERVIDOR}dashboard/updatequestion/${param.id}`, this.mapper.mapTo(param))
             .pipe(map((x) => x.data));

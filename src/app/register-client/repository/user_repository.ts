@@ -19,7 +19,6 @@ export class UserRepository {
 
     getUser(id: number): Observable<User> {
 
-        console.log("Recuperando usuário...")
         return this.http
             .getAll<User>(`${environment.URLSERVIDOR}user/${id}`)
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
@@ -27,7 +26,6 @@ export class UserRepository {
 
     postUser(param: User){
 
-        console.log("Postando usuário...")
         return this.http
             .post<UserEntity>(`${environment.URLSERVIDOR}user/register`, this.mapper.mapTo(param))
             .pipe(map((x) => this.mapper.mapFrom(x.data)));
@@ -35,7 +33,6 @@ export class UserRepository {
 
     putUser(param: User){
         
-        console.log("Atualizando usuário...")
         return this.http
             .put<void>(`${environment.URLSERVIDOR}user/update/${param.id}`, 
             this.mapper.mapTo(param))
@@ -44,7 +41,6 @@ export class UserRepository {
 
     deleteUser(id: number): Observable<void>{
 
-        console.log("Deletando usuário...")
         return this.http
             .delete<void>(`${environment.URLSERVIDOR}user/delete/${id}`, id)
             .pipe(map((x) => x.data));

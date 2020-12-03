@@ -20,7 +20,7 @@ export class HttpService {
     useFormData: boolean = false,
     newHeaders: HttpHeaders = null
   ): Observable<DefaultResponse<T>> {
-    console.log("--------------------POST-----------------------------");
+ 
     return this.request<T>(
       'POST',
       `${url}`,
@@ -37,7 +37,7 @@ export class HttpService {
     useDefaultHeader: boolean = true,
     useFormData: boolean = false
   ): Observable<DefaultResponse<T>> {
-    console.log("--------------------PUT-----------------------------");
+ 
     return this.request<T>(
       'PUT',
       `${url}`,
@@ -48,17 +48,17 @@ export class HttpService {
   }
 
   patch<T>(url, body): Observable<DefaultResponse<T>> {
-    console.log("--------------------PATCH-----------------------------");
+ 
     return this.request<T>('PATCH', `${url}`, body);
   }
 
   get<T>(url): Observable<DefaultResponse<T>> {
-    console.log("--------------------GET-----------------------------");
+ 
     return this.request<T>('GET', `${url}`);
   }
 
   delete<T>(url, id: number): Observable<DefaultResponse<T>> {
-    console.log("--------------------DELETE-----------------------------");
+ 
     return this.request<T>('DELETE', `${url}`, { id });
   }
 
@@ -74,13 +74,12 @@ export class HttpService {
     headers = newHeaders || this.getDefaultHeader(useFormData);
 
     if (environment.logRequest) {
-      console.dir({ type, url, headers, body });
+      // console.dir({ type, url, headers, body });
     }
 
     if (environment.traceRequest) {
       // tslint:disable-next-line: no-console
-      console.log('Passando o trace...')
-      console.trace('trace');
+ 
     }
 
     return this.http
