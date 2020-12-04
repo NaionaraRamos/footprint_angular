@@ -400,18 +400,6 @@
     }
   }
   
-  /* @media(max-width:1366px){
-    
-    .container-fluid.login {
-      min-height: 860px;
-    }
-
-    .container-fluid.chartsPegada {
-      min-height: 1920px;
-    }
-  
-  } */
-  
   button:focus, input:focus {
 
     outline: none; 

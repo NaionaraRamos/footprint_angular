@@ -122,7 +122,7 @@ export class DashboardClientComponent implements OnInit {
 
   getUser(){
     if(this.user == 'nramosmaceda@gmail.com'){
-      console.log(1234567890);
+     // console.log(1234567890);
 
       document.getElementById('area_user').style.display = "none";
       document.getElementById('hist').style.display = "none";
@@ -138,7 +138,7 @@ export class DashboardClientComponent implements OnInit {
 
     }
     else{
-      console.log('Não é admin...')
+     // console.log('Não é admin...')
 
       document.getElementById('area_admin').style.display = "none";
       //document.getElementById('hist').style.display = "none";

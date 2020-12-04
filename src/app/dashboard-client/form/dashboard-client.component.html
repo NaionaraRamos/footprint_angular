@@ -169,9 +169,9 @@
                     <div  ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <button (click)="showContentTips('cat1');" class="dropdown-item cat1" ngbDropdownItem>Alojamento</button>
                       <button (click)="showContentTips('cat2');" class="dropdown-item cat2" ngbDropdownItem>Alimentação</button>
-                      <button (click)="showContentTips('cat3');" class="dropdown-item cat3" ngbDropdownItem>Transportes</button>
-                      <button (click)="showContentTips('cat4');" class="dropdown-item cat4" ngbDropdownItem>Consumo</button>
-                      <button (click)="showContentTips('cat5');" class="dropdown-item cat5" ngbDropdownItem>Resíduos</button>
+                      <button (click)="showContentTips('cat4');" class="dropdown-item cat3" ngbDropdownItem>Consumo</button>
+                      <button (click)="showContentTips('cat5');" class="dropdown-item cat4" ngbDropdownItem>Resíduos</button>
+                      <button (click)="showContentTips('cat3');" class="dropdown-item cat5" ngbDropdownItem>Transportes</button>
                     </div>
                 </div>
                 <div class="contentCategory">
@@ -186,19 +186,19 @@
                         <p><b>2. Reduza o consumo de carne.</b> O consumo de carne prejudica o meio ambiente, pois, para criar pastagens, uma grande área é desmatada. Além disso, é grande a quantidade de água consumida para criar os animais e para garantir todo o processamento da carne. Isso sem falar na grande quantidade de gases de efeito estufa emitidos pelo gado.</p>
                     </div>
                     <div class="row cat3">
-                        <span>Transportes</span><br><br><br>
-                        <p><b>1. Utilize veículo apenas quando necessário.</b> Os carros são responsáveis pela liberação de uma grande quantidade de poluentes na atmosfera, sendo assim, restringir seu uso é importante. Se o local de destino é próximo, por que não ir a pé? É importante lembrar que as pessoas que possuem carro devem sempre realizar a manutenção do veículo para evitar que mais poluentes sejam liberados.</p><br>
-                        <p><b>2. Vá de bicicleta ao trabalho!</b> Além de cumprir a sua cota diária de exercícios físicos, pedalar tira você da monotonia, revela novos cenários e, claro, um pouco de ar fresco na cara faz sempre bem.</p>
-                    </div>
-                    <div class="row cat4">
                         <span>Consumo</span><br><br><br>
-                        <p><b>1. Evite o consumismo.</b> A chave para esse ponto é sempre perguntar: “Eu realmente necessito disso?” Às vezes compramos coisas sem necessidade naquele momento e contribuímos, assim, para o uso intensivo de recursos naturais.</p><br>
+                        <p><b>1. Evite a compra desnecessária de itens.</b> A chave para esse ponto é sempre perguntar: “Eu realmente necessito disso?” Às vezes compramos coisas sem necessidade naquele momento e contribuímos, assim, para o uso intensivo de recursos naturais.</p><br>
                         <p><b>2. Use ecobags e não sacolas plásticas.</b> Vamos lá, é tudo questão de adaptação e menos de "ecologia". Não saia por aí comprando aquelas ecobags vendidas em mercados, além de estragarem facilmente, o volume que elas comportam é mínimo. Procure por embalagens maiores.</p>
                     </div>
-                    <div class="row cat5">
+                    <div class="row cat4">
                         <span>Resíduos</span><br><br><br>
                         <p><b>1. Sempre faça o descarte correto do lixo.</b> Descartar o lixo adequadamente evita a poluição e até mesmo a propagação de doenças. Ao jogar lixo em um terreno baldio, por exemplo, você pode estar contribuindo para o aumento da população de ratos, baratas e até mesmo de mosquitos-da-dengue.</p><br>
                         <p><b>2. Recicle seu lixo.</b> Essa medida evita o gasto desnecessário dos recursos naturais e ainda ajuda a diminuir a concentração de lixo no ambiente.</p>
+                    </div>
+                    <div class="row cat5">
+                        <span>Transportes</span><br><br><br>
+                        <p><b>1. Utilize veículo apenas quando necessário.</b> Os carros são responsáveis pela liberação de uma grande quantidade de poluentes na atmosfera, sendo assim, restringir seu uso é importante. Se o local de destino é próximo, por que não ir a pé? É importante lembrar que as pessoas que possuem carro devem sempre realizar a manutenção do veículo para evitar que mais poluentes sejam liberados.</p><br>
+                        <p><b>2. Vá de bicicleta ao trabalho!</b> Além de cumprir a sua cota diária de exercícios físicos, pedalar tira você da monotonia, revela novos cenários e, claro, um pouco de ar fresco na cara faz sempre bem.</p>
                     </div>
                 </div>
             </div>
@@ -469,8 +469,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let question of questions">
-                            <td><span>{{question.id}}</span></td>
+                        <tr *ngFor="let question of questions; let i = index">
+                            <td><span>{{i + 1}}</span></td>
                             <td><span>{{question.title}}</span></td>
                             <td><span>{{question.status}}</span></td>
                             <td>
