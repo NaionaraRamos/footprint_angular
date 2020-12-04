@@ -78,6 +78,8 @@ export class DashboardClientComponent implements OnInit {
     this.getUser();
     //this.insertChartAfterAnswers();
    // this.getAnswers();
+
+
   }
 
   open(content, title, id) {
@@ -330,6 +332,9 @@ export class DashboardClientComponent implements OnInit {
   }
 
   analyzeQuestions(form){
+    this.hiddenContent();
+    this.showContent('historic');
+  //  this.insertChartAfterAnswers();
     this.numberTotalQuestion = $('.questionToAnalyze').length
     this.questionAnalyze()
     console.log(this.questionsChecked)
